@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.14)
+project(runner LANGUAGES CXX)
+add_executable(${BINARY_NAME} "main.cc" "my_application.cc" "my_application.h")
+target_link_libraries(${BINARY_NAME} PRIVATE flutter flutter_wrapper_app)
+add_dependencies(${BINARY_NAME} flutter_assemble)
