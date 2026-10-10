@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show appBuildName, appBuildNumber;
-import 'package:awesome_safe/services/vault_service.dart';
-import 'package:awesome_safe/services/vault_workflow_service.dart';
-import 'package:awesome_safe/screens/widgets/loading_overlay.dart';
+import 'package:awesome_safe/src/services/vault_service.dart';
+import 'package:awesome_safe/src/services/vault_workflow_service.dart';
+import 'package:awesome_safe/src/screens/widgets/loading_overlay.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key, required this.vaultService, required this.themeMode, required this.onThemeModeChanged});
@@ -308,6 +308,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     trailing: IconButton(
                       onPressed: _moving ? null : _chooseStorageDirectory,
                       icon: const Icon(Icons.drive_file_move),
+                      color: scheme.primary,
                       tooltip: 'Alterar pasta',
                     ),
                   ),
@@ -319,8 +320,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   label: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text('Zerar cofre e armazenamento')),
-                  style:
-                      OutlinedButton.styleFrom(foregroundColor: scheme.error),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: scheme.error,
+                    side: BorderSide(color: scheme.error),
+                  ),
                 ),
                 const SizedBox(height: 24),
                 // ── Segurança ──

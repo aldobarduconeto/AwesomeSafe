@@ -5,6 +5,7 @@ import '../services/vault_service.dart';
 import '../services/vault_workflow_service.dart';
 import 'widgets/loading_overlay.dart';
 import 'settings_page.dart';
+import 'widgets/colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -457,10 +458,12 @@ class _SafeItemCard extends StatelessWidget {
               IconButton(
                   onPressed: isBusy || isLocked ? null : onExport,
                   icon: const Icon(Icons.download),
+                  color: Theme.of(context).colorScheme.primary,
                   tooltip: 'Exportar'),
               IconButton(
                   onPressed: isBusy || isLocked ? null : onDelete,
-                  icon: const Icon(Icons.delete, color: Colors.red),
+                  icon: const Icon(Icons.delete),
+                  color: AppColors.deleteRed,
                   tooltip: 'Excluir'),
             ],
           ),

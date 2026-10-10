@@ -5,7 +5,7 @@
 int APIENTRY wWinMain(HINSTANCE instance, HINSTANCE, wchar_t*, int) {
   flutter::DartProject project(L"data");
   auto window = std::make_unique<Win32Window>();
-  if (!window->CreateAndShow(L"awesome_safe", {800, 600})) return EXIT_FAILURE;
+  if (!window->CreateAndShow(L"AwesomeSafe", {800, 600})) return EXIT_FAILURE;
   flutter::FlutterViewController controller(800, 600, project);
   window->SetChildContent(controller.view()->GetNativeWindow());
   MSG message;

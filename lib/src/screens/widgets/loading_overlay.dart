@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 /// Um widget de overlay que exibe um indicador de carregamento (loading)
 /// com mensagem contextual durante operações demoradas (como criptografia,
@@ -26,7 +27,7 @@ class LoadingOverlay extends StatelessWidget {
                 duration: const Duration(milliseconds: 200),
                 curve: Curves.easeInOut,
                 child: Container(
-                  color: (isDark ? Colors.black : Colors.black87)
+                  color: (isDark ? AppColors.darkBarrier : AppColors.lightBarrier)
                       .withValues(alpha: 0.65),
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(24),
@@ -34,7 +35,7 @@ class LoadingOverlay extends StatelessWidget {
                     constraints: const BoxConstraints(maxWidth: 340),
                     child: Card(
                       elevation: 12,
-                      shadowColor: Colors.black45,
+                      shadowColor: AppColors.cardShadow,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(22),
                         side: BorderSide(
