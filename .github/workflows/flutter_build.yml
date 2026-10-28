@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target: [apk, appbundle, web, linux]
+        target: [apk, linux]
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
         with:
           channel: 'stable'
           cache: true
-          flutter-version-file: pubspec.yaml # Detecta a versão do Flutter do seu projeto
+          flutter-version: 3.47.8 # Detecta a versão do Flutter do seu projeto
 
       - name: Instalar dependências do Flutter
         run: flutter pub get
@@ -62,8 +62,6 @@ jobs:
           name: build-${{ matrix.target }}
           path: |
             build/app/outputs/flutter-apk/app-release.apk
-            build/app/outputs/bundle/release/app-release.aab
-            web-build.zip
             linux-build.zip
 
   # ------------------------------------------------------
@@ -80,7 +78,7 @@ jobs:
         with:
           channel: 'stable'
           cache: true
-          flutter-version-file: pubspec.yaml
+          flutter-version: 3.47.8
 
       - name: Instalar dependências
         run: flutter pub get
@@ -114,7 +112,7 @@ jobs:
         with:
           channel: 'stable'
           cache: true
-          flutter-version-file: pubspec.yaml
+          flutter-version: 3.47.8
 
       - name: Instalar dependências
         run: flutter pub get
